@@ -63,6 +63,10 @@ void AIGuerreiro (Unidade* u){
 DWORD WINAPI threadAgente(LPVOID param){
 	
 	Unidade *u = (Unidade*) param;
+	
+	int heig = AgentePrincipal::mapHeight();
+	int wid = AgentePrincipal::mapWidth();
+	//A classe Agente Principal ainda tem o metodo AgentePrincipal bool isWalkable(int x, int y).
 
 	while(true){
 		//Se houve algum problema (eg.: o jogo foi fechado) ou a unidade estah morta, finalizar a thread

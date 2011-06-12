@@ -36,7 +36,17 @@ void *AgentePrincipal::NewAiModule(void * game){
 	return new Gerente();
 }
 
+int AgentePrincipal::mapHeight(){
+	return BWAPI::Broodwar->mapHeight();
+}
+	
+int AgentePrincipal::mapWidth(){
+	return BWAPI::Broodwar->mapWidth();
+}
 
+bool AgentePrincipal::isWalkable(int x, int y){
+	return BWAPI::Broodwar->isWalkable(x,y);
+}
 
 void AgentePrincipal::IniciarEmModoTeste(){
 #if _MODO_TESTE_
