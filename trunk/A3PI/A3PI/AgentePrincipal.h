@@ -27,6 +27,12 @@ public:
 
 	static void DormirAteFinalDoTurno();
 
+	static int mapHeight();
+	
+	static int mapWidth();
+
+	static bool isWalkable(int x, int y);
+
 	virtual void onEnd(bool isWinner) = 0;
 
 	virtual void InicioDePartida() = 0;
