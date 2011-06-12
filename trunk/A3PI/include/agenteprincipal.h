@@ -14,6 +14,15 @@ public:
 	static void IniciarEmModoTeste();
 
 	static void DormirAteFinalDoTurno();
+    
+    
+    static int mapHeight();
+	
+	static int mapWidth();
+
+	static bool isWalkable(int x, int y);
+    
+    
 
 	virtual void onEnd(bool isWinner);
 	
@@ -21,4 +30,5 @@ public:
 
 	virtual void UnidadeCriada(Unidade* unidade);
 
+ 
 };
