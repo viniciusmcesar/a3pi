@@ -28,6 +28,11 @@ public:
     //Unidade();
 
 	//vvv metodos extras
+
+	/** Equivalente a Game->isBuildable. Retorna valores estaticos, nao levando em consideracao unidades*/
+	bool isBuildable(int tileX, int tileY);
+	bool isBuildable(BWAPI::TilePosition position);
+
 	/** retorna os minerais sendo vistos (todos quando fog of war estah desligada) */
 	std::set<Unidade*> getMinerals(); 
 
