@@ -64,6 +64,9 @@ DWORD WINAPI threadAgente(LPVOID param){
 	
 	Unidade *u = (Unidade*) param;
 	
+	u->isBuildable(50,50);
+	u->isBuildable(BWAPI::TilePosition(3,5));
+
 	int heig = AgentePrincipal::mapHeight();
 	int wid = AgentePrincipal::mapWidth();
 	//A classe Agente Principal ainda tem o metodo AgentePrincipal bool isWalkable(int x, int y).
