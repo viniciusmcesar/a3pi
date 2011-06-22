@@ -18,6 +18,14 @@ public:
 
 	BWAPI::UnitCommand getComando();
 
+	//instavel std::set<Unidade*> getUnitsOnTile(int tileX, int tileY); 
+
+	//instavel bool canBuildHere(BWAPI::TilePosition position, BWAPI::UnitType type, bool checkExplored = false);
+
+	bool isBuildable(int tileX, int tileY);
+
+	bool isBuildable(BWAPI::TilePosition position);
+
 	std::set<Unidade*> getMinerals(); 
 
 	std::set<Unidade*> getGeysers();

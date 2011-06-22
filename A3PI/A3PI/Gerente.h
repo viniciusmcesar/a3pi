@@ -124,6 +124,7 @@ static void gameLoop(){
 		case EventType::NukeDetect:
 			break;
 		case EventType::UnitDiscover:
+			gerente->onUnitDiscover(e->unit);
 			break;
 		case EventType::UnitEvade:
 			break;
@@ -132,7 +133,6 @@ static void gameLoop(){
 		case EventType::UnitHide:
 			break;
 		case EventType::UnitCreate:
-			gerente->onUnitCreate(e->unit);
 			break;
 		case EventType::UnitDestroy:
 			break;
