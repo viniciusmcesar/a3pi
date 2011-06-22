@@ -76,28 +76,32 @@ void Gerente::onSendText(std::string text){ Broodwar->sendText("%s", text.c_str(
 void Gerente::onReceiveText(BWAPI::Player* player, std::string text){}
 void Gerente::onPlayerLeft(BWAPI::Player* player){}
 void Gerente::onNukeDetect(BWAPI::Position target){}
-void Gerente::onUnitDiscover(BWAPI::Unit* unit){}
+void Gerente::onUnitDiscover(BWAPI::Unit* unit){
+	if(!mapa[unit]){//nao multiplicar unidades quando de fato houver fog of war ativa
+		Unidade *u = new Unidade(unit,qntUnidades, &mapa, FOG_OF_WAR);
+		mapa[unit] = u;
+		unidades[qntUnidades++] = u;
+		//manter todas as unidades, mas apenas repassar as do jogador
+		if(unit->getPlayer() == Broodwar->self()){
+			Evento *criado = new Evento();
+			criado->agtPrinc = agentePrincipal;
+			criado->tipo = 1;
+			criado->unidade = u;
+			CreateThread(NULL,0,threadEvento,(void*)criado,0,NULL);
+		}
+	}
+}
 void Gerente::onUnitEvade(BWAPI::Unit* unit){}
 void Gerente::onUnitShow(BWAPI::Unit* unit){}
 void Gerente::onUnitHide(BWAPI::Unit* unit){}
-void Gerente::onUnitCreate(BWAPI::Unit* unit){
-	Unidade *u = new Unidade(unit,qntUnidades, &mapa, FOG_OF_WAR);
-	mapa[unit] = u;
-	unidades[qntUnidades++] = u;
-	//manter todas as unidades, mas apenas repassar as do jogador
-	if(unit->getPlayer() == Broodwar->self()){
-		Evento *criado = new Evento();
-		criado->agtPrinc = agentePrincipal;
-		criado->tipo = 1;
-		criado->unidade = u;
-		CreateThread(NULL,0,threadEvento,(void*)criado,0,NULL);
-	}
-}
+void Gerente::onUnitCreate(BWAPI::Unit* unit){}
 void Gerente::onUnitDestroy(BWAPI::Unit* unit){}
 void Gerente::onUnitMorph(BWAPI::Unit* unit){}
 void Gerente::onUnitRenegade(BWAPI::Unit* unit){}
 void Gerente::onSaveGame(std::string gameName){}
 
+/** @Deprecated - A baixa precisão do getTime (intervalos de 15ms) inutiliza este metodo para sleep das threads
+*/
 void Gerente::DormirAteFinalDoTurno(){
 	//int tempo = (int)(getCurrentTime() - inicioFrameTime);
 	//int temop2 = max(1, (int)(DURACAO_TURNO - tempo));

@@ -29,6 +29,27 @@ std::set<Unidade*> Unidade::filtrar(std::set<Unidade*> conjunto){
 	}
 	return conj2;
 }
+/* instavel - cancelado
+std::set<Unidade*> Unidade::getUnitsOnTile(int tileX, int tileY){
+	std::set<Unidade*> conjunto;
+	std::set<Unit*> temp = Broodwar->getUnitsOnTile(tileX, tileY);
+	for(std::set<Unit*>::iterator it = temp.begin(); it != temp.end(); it++){
+		if((*mapa)[*it] != NULL)
+		conjunto.insert((*mapa)[(*it)]);
+	}
+	instavel return filtrar(conjunto);
+}
+/* instavel - cancelado
+bool Unidade::canBuildHere(BWAPI::TilePosition position, BWAPI::UnitType type, bool checkExplored){
+	instavel return Broodwar->canBuildHere(unit, position, type, checkExplored);
+}*/
+
+bool Unidade::isBuildable(int tileX, int tileY){
+	return Broodwar->isBuildable(tileX, tileY);
+}
+bool Unidade::isBuildable(BWAPI::TilePosition position){
+	return Broodwar->isBuildable(position);
+}
 
 std::set<Unidade*> Unidade::getMinerals(){
 	std::set<Unidade*> conjunto;
