@@ -44,6 +44,13 @@ bool Unidade::canBuildHere(BWAPI::TilePosition position, BWAPI::UnitType type, b
 	instavel return Broodwar->canBuildHere(unit, position, type, checkExplored);
 }*/
 
+bool Unidade::hasPower(int tileX, int tileY, int tileWidth, int tileHeight){
+	return Broodwar->hasPower(tileX, tileY, tileWidth, tileHeight);
+}
+bool Unidade::hasPower(BWAPI::TilePosition position, int tileWidth, int tileHeight){
+	return Broodwar->hasPower(position, tileWidth, tileHeight);
+}
+
 bool Unidade::isBuildable(int tileX, int tileY){
 	return Broodwar->isBuildable(tileX, tileY);
 }

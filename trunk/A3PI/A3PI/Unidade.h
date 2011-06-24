@@ -22,8 +22,10 @@ public:
 
 	//instavel bool canBuildHere(BWAPI::TilePosition position, BWAPI::UnitType type, bool checkExplored = false);
 
-	bool isBuildable(int tileX, int tileY);
+	bool hasPower(int tileX, int tileY, int tileWidth, int tileHeight);
+	bool hasPower(BWAPI::TilePosition position, int tileWidth, int tileHeight);
 
+	bool isBuildable(int tileX, int tileY);
 	bool isBuildable(BWAPI::TilePosition position);
 
 	std::set<Unidade*> getMinerals(); 
