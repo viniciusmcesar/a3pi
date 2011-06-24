@@ -63,7 +63,7 @@ void AIGuerreiro (Unidade* u){
 DWORD WINAPI threadAgente(LPVOID param){
 	
 	Unidade *u = (Unidade*) param;
-	
+	bool x = u->hasPower(3,4,50,60);
 	u->isBuildable(50,50);
 	u->isBuildable(BWAPI::TilePosition(3,5));
 
