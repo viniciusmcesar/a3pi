@@ -28,6 +28,9 @@ public:
     //Unidade();
 
 	//vvv metodos extras
+	/** Equivalente a Game->hasPower. */
+	bool hasPower(int tileX, int tileY, int tileWidth, int tileHeight);
+	bool hasPower(BWAPI::TilePosition position, int tileWidth, int tileHeight);
 
 	/** Equivalente a Game->isBuildable. Retorna valores estaticos, nao levando em consideracao unidades*/
 	bool isBuildable(int tileX, int tileY);
