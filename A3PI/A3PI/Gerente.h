@@ -105,17 +105,17 @@ static void gameLoop(){
 
 	for(std::list<Event>::iterator e=Broodwar->getEvents().begin();e!=BWAPI::Broodwar->getEvents().end();e++)
 	{
-		switch(e->type)
+		switch(e->getType())
 		{
 		case EventType::MatchEnd:
-			gerente->onEnd(e->isWinner);
-			if (e->isWinner)
+			gerente->onEnd(e->isWinner());
+			if (e->isWinner())
 				printf("I won the game\n");
 			else
 				printf("I didn't win the game\n");
 			break;
 		case EventType::SendText:
-			gerente->onSendText(e->text);
+			gerente->onSendText(e->getText());
 			break;
 		case EventType::ReceiveText:
 			break;
@@ -124,7 +124,7 @@ static void gameLoop(){
 		case EventType::NukeDetect:
 			break;
 		case EventType::UnitDiscover:
-			gerente->onUnitDiscover(e->unit);
+			gerente->onUnitDiscover(e->getUnit());
 			break;
 		case EventType::UnitEvade:
 			break;
