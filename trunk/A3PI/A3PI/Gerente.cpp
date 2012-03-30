@@ -29,12 +29,12 @@ void Gerente::onStart(){
 	fclose(stdin);
 	FOG_OF_WAR = ent;
 	Broodwar->setLocalSpeed(DURACAO_TURNO);
-	Broodwar->sendText("Iniciando o A3PI!");
   Broodwar->enableFlag(Flag::UserInput);
   if(!FOG_OF_WAR){
 	  Broodwar->enableFlag(Flag::CompleteMapInformation);
 	  Broodwar->sendText("black sheep wall");
   }
+  Broodwar->sendText("********* A3PI 2012.1");
   BWTA::readMap();
 	for(std::set<Unit*>::const_iterator it = Broodwar->getMinerals().begin(); it != Broodwar->getMinerals().end(); it++){
 		Unidade *u = new Unidade(*it,qntUnidades, &mapa, FOG_OF_WAR);
@@ -100,7 +100,7 @@ void Gerente::onUnitMorph(BWAPI::Unit* unit){}
 void Gerente::onUnitRenegade(BWAPI::Unit* unit){}
 void Gerente::onSaveGame(std::string gameName){}
 
-/** @Deprecated - A baixa precis„o do getTime (intervalos de 15ms) inutiliza este metodo para sleep das threads
+/** @Deprecated - A baixa precis√£o do getTime (intervalos de 15ms) inutiliza este metodo para sleep das threads
 */
 void Gerente::DormirAteFinalDoTurno(){
 	//int tempo = (int)(getCurrentTime() - inicioFrameTime);
