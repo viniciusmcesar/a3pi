@@ -1,0 +1,1 @@
+Extension of BWAPI to better support autonomous agents abstractions & threaded AIs in general
